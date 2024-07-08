@@ -38,9 +38,9 @@ class TestSaveEval:
 
     def test_load_and_run_evaluators(self, tmpdir, pf_client, data_file) -> None:
         """Test regular evaluator saving."""
-        from promptflow.evals.evaluators import F1ScoreEvaluator
+        from promptflow.evals.evaluators import ContentSafetyChatEvaluator
 
-        pf_client.flows.save(F1ScoreEvaluator, path=tmpdir)
+        pf_client.flows.save(ContentSafetyChatEvaluator, path=tmpdir)
         run = pf_client.run(tmpdir, data=data_file)
         results_df = pf_client.get_details(run.name)
 
